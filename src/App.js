@@ -7,6 +7,7 @@ import Statement from './components/Statement'
 import Skills from './components/Skills'
 import Education from './components/Education'
 import Experience from './components/Experience'
+import Additional from './components/Additional';
 
 class App extends Component {
 
@@ -62,6 +63,13 @@ class App extends Component {
     return (
       <div>
         <Header />
+
+        <General info={general} />
+        <Statement info={statement} />
+        <Skills info={skills} />
+        <Experience info={experience} />
+        <Education info={education} />
+        <Additional info={additional} />
       </div>
     )
   }
