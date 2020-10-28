@@ -1,17 +1,14 @@
 import { Component } from 'react';
 import './App.css';
-import Header from './components/layout/Header'
+import Header from './components/layout/Header';
 
-import General from './components/General'
-import Statement from './components/Statement'
-import Skills from './components/Skills'
-import Education from './components/Education'
-import Experience from './components/Experience'
-import Additional from './components/Additional';
+import FormHandler from './components/FormHandler';
+import CvFormat from './components/CvFormat';
 
 class App extends Component {
 
   state = {
+    edit: false,
     statement: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus dolorem rerum aperiam, 
         ab corrupti tempora sit natus modi sed incidunt deleniti voluptas? Atque eligendi ea laborum eius 
         sit facilis, nisi ad illum corporis eveniet quisquam reiciendis delectus ipsam nobis officia, 
@@ -60,16 +57,14 @@ class App extends Component {
 
     const { statement, general, skills, experience, education, additional } = this.state
 
+    
     return (
-      <div>
+      <div className='app-div'>
         <Header />
-
-        <General info={general} />
-        <Statement info={statement} />
-        <Skills info={skills} />
-        <Experience info={experience} />
-        <Education info={education} />
-        <Additional info={additional} />
+        { this.state.edit ? 
+          <FormHandler data={this.state}/> 
+          : <CvFormat data={this.state}/> }
+        
       </div>
     )
   }
