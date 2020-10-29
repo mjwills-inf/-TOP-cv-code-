@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import uniqid from 'uniqid'
 
 export default class CvFormat extends Component {
   render() {
@@ -11,6 +12,9 @@ export default class CvFormat extends Component {
     const skills = this.props.data.skills
     
     const fullname = `${firstName} ${surname}`;
+    const listSkills = skills.map((item) => {
+      return <li key={uniqid()}>{ item }</li>
+    })
 
     return (
       <div className="cv-format-div">
@@ -39,7 +43,9 @@ export default class CvFormat extends Component {
         </div>
 
         <div className="skills-div">
-
+          <ul>
+            { listSkills }
+          </ul>
         </div>
 
       </div>
