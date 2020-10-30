@@ -64,7 +64,9 @@ class App extends Component {
   }
   
   toggleEdit = () => {
-    this.setState({edit: !this.state.edit})
+    let update
+    update = (this.state.edit === true ? false : true)
+    this.setState({edit: update})
   }
   
 
@@ -84,7 +86,7 @@ class App extends Component {
           /> }
 
         <Button 
-          data={this.state.edit}
+          isEdit={this.state.edit}
           toggle={this.toggleEdit}
         />
         
