@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Skills extends Component {
+export default class StatementEdit extends Component {
   render() {
     return (
       <div>

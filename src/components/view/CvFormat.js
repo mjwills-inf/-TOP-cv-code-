@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import uniqid from 'uniqid'
+import EducationItem from './EducationItem'
+
+import ExperienceItem from './ExperienceItem'
 
 export default class CvFormat extends Component {
   render() {
@@ -7,15 +10,19 @@ export default class CvFormat extends Component {
 
     const { firstName, surname, position, phone, email, country, city, postcode,
         addressLine1, addressLine2, website } = this.props.data.general
+    
 
     const statement = this.props.data.statement
     const skills = this.props.data.skills
+    const experience = this.props.data.experience
+    const education = this.props.data.education
+    const additional = this.props.data.additional
     
     const fullname = `${firstName} ${surname}`;
     const listSkills = skills.map((item) => {
       return <li key={uniqid()}>{ item }</li>
     })
-
+      
     return (
       <div className="cv-format-div">
 
@@ -43,8 +50,32 @@ export default class CvFormat extends Component {
         </div>
 
         <div className="skills-div">
+          <h3>Skills</h3>
           <ul>
             { listSkills }
+          </ul>
+        </div>
+
+        <div className="experience-div">
+          <h3>Work Experience</h3>
+          {experience.map((item) => 
+            <ExperienceItem data={item} key={uniqid()}/>
+          )}
+        </div>
+
+        <div className="education-div">
+          <h3>Education</h3>
+          {education.map((item) => 
+            <EducationItem data={item} key={uniqid()}/>
+          )}
+        </div>
+
+        <div className="additional-div">
+          <h3>Additional Information</h3>
+          <ul>
+            {additional.map(item =>              
+                <li>{item}</li>              
+            )}
           </ul>
         </div>
 

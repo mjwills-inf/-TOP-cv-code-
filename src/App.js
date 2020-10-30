@@ -2,8 +2,8 @@ import { Component } from 'react';
 import './App.css';
 import Header from './components/layout/Header';
 
-import FormHandler from './components/FormHandler';
-import CvFormat from './components/CvFormat';
+import FormHandler from './components/view/FormHandler';
+import CvFormat from './components/view/CvFormat';
 
 class App extends Component {
 
@@ -22,7 +22,7 @@ class App extends Component {
       general: {
         firstName: 'Satoshi',
         surname: 'Nakamoto',
-        position: 'Learner Layman',
+        position: 'Learner',
         phone: '01909-657422',
         email: 'noreply@anon.com',
         website: ' www.iNeedToGetSite.com',
@@ -57,7 +57,7 @@ class App extends Component {
         qualification: 'Desmond',
   
       }],
-      additional: 'None whatsoever'
+      additional: ['Nope']
     }
   }
   
@@ -67,10 +67,7 @@ class App extends Component {
   
 
   render() {
-
-    const { statement, general, skills, experience, education, additional } = this.state
-
-    
+   
     return (
       <div className='app-div'>
         <Header />

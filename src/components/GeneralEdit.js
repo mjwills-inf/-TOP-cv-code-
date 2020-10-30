@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class General extends Component {
+export default class GeneralEdit extends Component {
   
   
   render() {
