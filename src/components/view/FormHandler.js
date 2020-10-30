@@ -17,12 +17,12 @@ export default class FormHandler extends Component {
     return (
       <div className='form-div'>
         <form>
-          <GeneralEdit data={this.props.info.general}/>
-          <StatementEdit data={this.props.info.statement}/>
-          <SkillsEdit data={this.props.info.skills}/>
-          <ExperienceEdit data={this.props.info.experience}/>
-          <EducationEdit data={this.props.info.education}/>
-          <AdditionalEdit data={this.props.info.additional}/>
+          <GeneralEdit data={this.props.data.general}/>
+          <StatementEdit data={this.props.data.statement}/>
+          <SkillsEdit data={this.props.data.skills}/>
+          <ExperienceEdit data={this.props.data.experience}/>
+          <EducationEdit data={this.props.data.education}/>
+          <AdditionalEdit data={this.props.data.additional}/>
 
         </form>
         

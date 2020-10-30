@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import './App.css';
+
 import Header from './components/layout/Header';
+import Button from './components/layout/Button'
 
 import FormHandler from './components/view/FormHandler';
 import CvFormat from './components/view/CvFormat';
@@ -61,8 +63,8 @@ class App extends Component {
     }
   }
   
-  handleChange = () => {
-    this.setState({})
+  toggleEdit = () => {
+    this.setState({edit: !this.state.edit})
   }
   
 
@@ -80,6 +82,11 @@ class App extends Component {
           <CvFormat 
             data={this.state}
           /> }
+
+        <Button 
+          data={this.state.edit}
+          toggle={this.toggleEdit}
+        />
         
       </div>
     )

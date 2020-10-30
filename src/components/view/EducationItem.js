@@ -1,5 +1,4 @@
 import React from 'react'
-import uniqid from 'uniqid'
 
 export default function EducationItem(props) {
 

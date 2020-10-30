@@ -74,7 +74,7 @@ export default class CvFormat extends Component {
           <h3>Additional Information</h3>
           <ul>
             {additional.map(item =>              
-                <li>{item}</li>              
+                <li key={uniqid()}>{item}</li>              
             )}
           </ul>
         </div>
