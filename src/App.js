@@ -68,7 +68,13 @@ class App extends Component {
     update = (this.state.edit === true ? false : true)
     this.setState({edit: update})
   }
-  
+
+  // mmm no
+  updateAppState = (whatkey, newValue) => {
+    this.setState({ [whatkey]: newValue })
+  }
+
+
 
   render() {
    
@@ -79,7 +85,7 @@ class App extends Component {
         { this.state.edit ? 
           <FormHandler 
             data={this.state}
-
+            update={this.updateAppState}
           /> : 
           <CvFormat 
             data={this.state}

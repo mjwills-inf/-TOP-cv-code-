@@ -12,17 +12,29 @@ export default class FormHandler extends Component {
   
 
   render() {
-    console.log("form handler", this.props)
 
     return (
       <div className='form-div'>
         <form>
-          <GeneralEdit data={this.props.data.general}/>
-          <StatementEdit data={this.props.data.statement}/>
-          <SkillsEdit data={this.props.data.skills}/>
-          <ExperienceEdit data={this.props.data.experience}/>
-          <EducationEdit data={this.props.data.education}/>
-          <AdditionalEdit data={this.props.data.additional}/>
+          <GeneralEdit 
+            data={this.props.data.general}
+            updateAppState={this.props.update}
+          />
+          <StatementEdit 
+            data={this.props.data.statement}
+          />
+          <SkillsEdit 
+            data={this.props.data.skills}
+          />
+          <ExperienceEdit 
+            data={this.props.data.experience}
+          />
+          <EducationEdit 
+            data={this.props.data.education}
+          />
+          <AdditionalEdit 
+            data={this.props.data.additional}
+          />
 
         </form>
         
