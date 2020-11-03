@@ -2,12 +2,7 @@ import React, { Component } from 'react'
 
 export default class StatementEdit extends Component {
 
-  state = {
-    newStatement: this.props.data
-  }
-
   dataChange = (e) => {
-    this.setState({newStatement: e.target.value})
     // this.props.updateAppState('statement', this.state.newStatement)  
   }  
 
@@ -18,7 +13,7 @@ export default class StatementEdit extends Component {
         <input 
           type="textarea"
           name="statement"
-          value={this.state.newStatement}
+          value={this.props.data}
           onChange={this.dataChange}
         />
         

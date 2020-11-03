@@ -18,7 +18,7 @@ export default class FormHandler extends Component {
         <form>
           <GeneralEdit 
             data={this.props.data.general}
-            updateAppState={this.props.update}
+            // updateAppState={this.props.update}
           />
           <StatementEdit 
             data={this.props.data.statement}
@@ -26,6 +26,7 @@ export default class FormHandler extends Component {
           />
           <SkillsEdit 
             data={this.props.data.skills}
+            updateAppState={this.props.update}
           />
           <ExperienceEdit 
             data={this.props.data.experience}
