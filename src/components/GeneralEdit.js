@@ -7,11 +7,10 @@ export default class GeneralEdit extends Component {
   }
 
   dataChange = (e) => {
-    console.log("in data chane", this.state.newGeneral)
     let targetState = this.state.newGeneral    
     targetState[e.target.name] = e.target.value
     this.setState({targetState})
-    this.props.updateAppState('general', this.state.newGeneral)  
+    // this.props.updateAppState('general', this.state.newGeneral)  
   }
   
   render() {
@@ -21,7 +20,7 @@ export default class GeneralEdit extends Component {
     
     return (
       
-      <div className = 'general-div'>
+      <div className = 'general-edit-div'>
         <input 
           type="text" 
           name="firstName" 

@@ -6,7 +6,6 @@ import ExperienceItem from './ExperienceItem'
 
 export default class CvFormat extends Component {
   render() {
-    console.log("cv format", this.props)
 
     const { firstName, surname, position, phone, email, country, city, postcode,
         addressLine1, addressLine2, website } = this.props.data.general
@@ -26,7 +25,7 @@ export default class CvFormat extends Component {
     return (
       <div className="cv-format-div">
 
-        <div className="general">
+        <div className="general-div">
           <div className="name-title-div">
             <h3>{ fullname }</h3>
             <h4>{ position }</h4>

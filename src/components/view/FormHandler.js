@@ -22,6 +22,7 @@ export default class FormHandler extends Component {
           />
           <StatementEdit 
             data={this.props.data.statement}
+            updateAppState={this.props.update}
           />
           <SkillsEdit 
             data={this.props.data.skills}
