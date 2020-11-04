@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class StatementEdit extends Component {
 
   dataChange = (e) => {
-    // this.props.updateAppState('statement', this.state.newStatement)  
+    this.props.updateAppState('statement', e.target.value)  
   }  
 
   render() {

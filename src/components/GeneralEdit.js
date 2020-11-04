@@ -1,22 +1,16 @@
 import React, { Component } from 'react'
 
 export default class GeneralEdit extends Component {
-  
-  state={
-    newGeneral: this.props.data
-  }
 
+
+  
   dataChange = (e) => {
-    let targetState = this.state.newGeneral    
-    targetState[e.target.name] = e.target.value
-    this.setState({targetState})
-    // this.props.updateAppState('general', this.state.newGeneral)  
+    let propsCopy = this.props.data
+    propsCopy[e.target.name] = e.target.value   
+    this.props.updateAppState('general', propsCopy)  
   }
   
   render() {
-
-
-    
     
     return (
       
@@ -24,67 +18,67 @@ export default class GeneralEdit extends Component {
         <input 
           type="text" 
           name="firstName" 
-          value={this.state.newGeneral.firstName}
+          value={this.props.data.firstName}
           onChange={this.dataChange}
         />
          <input 
           type="text" 
           name="surname" 
-          value={this.state.newGeneral.surname}
+          value={this.props.data.surname}
           onChange={this.dataChange}
         />
          <input 
           type="text" 
           name="position" 
-          value={this.state.newGeneral.position}
+          value={this.props.data.position}
           onChange={this.dataChange}
         />
          <input 
           type="text" 
           name="phone" 
-          value={this.state.newGeneral.phone}
+          value={this.props.data.phone}
           onChange={this.dataChange}
         />
          <input 
           type="text" 
           name="email" 
-          value={this.state.newGeneral.email}
+          value={this.props.data.email}
           onChange={this.dataChange}
         />
          <input 
           type="text" 
           name="website" 
-          value={this.state.newGeneral.website}
+          value={this.props.data.website}
           onChange={this.dataChange}
         /> 
         <input 
           type="text" 
           name="addressLine1" 
-          value={this.state.newGeneral.addressLine1}
+          value={this.props.data.addressLine1}
           onChange={this.dataChange}
         />
          <input 
           type="text" 
           name="addressLine2" 
-          value={this.state.newGeneral.addressLine2}
+          value={this.props.data.addressLine2}
           onChange={this.dataChange}
         />
          <input 
           type="text" 
           name="postcode" 
-          value={this.state.newGeneral.postcode}
+          value={this.props.data.postcode}
           onChange={this.dataChange}
         />
         <input 
           type="text" 
           name="city" 
-          value={this.state.newGeneral.city}
+          value={this.props.data.city}
           onChange={this.dataChange}
         />
         <input 
           type="text" 
           name="country" 
-          value={this.state.newGeneral.country}
+          value={this.props.data.country}
           onChange={this.dataChange}
         />
         

@@ -1,32 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component, useDebugValue } from 'react'
 
-export default class SkillsEdit extends Component { 
-
-  state = {
-    newSkills: this.props.data
-  }
+export default class SkillsEdit extends Component {   
 
   // below methods are retarded and show you should have ids with items in arrays
   // i.e. and array of objects of id+string
 
+  copyProps = this.props.data
+
   deleteSkill = (e) => {
     let index = e.target.parentNode.getAttribute('data-key')
-    console.log("in delete", index)
-    let copyState = this.state.newSkills
-    copyState.splice(index, 1)
-    this.setState({newSkills: copyState})
+    this.copyProps.splice(index, 1)
+    this.props.updateAppState('skills', this.copyProps)
   }
 
   addSkill = () => {
-
+    this.copyProps.push('')
+    this.props.updateAppState('skills', this.copyProps)
   }
 
   dataChange = (e) => {
     let index = e.target.parentNode.getAttribute('data-key')
-    let copyState = this.state.newSkills
-    copyState[index] = e.target.value
-    this.setState({newSkills: copyState})
-
+    this.copyProps[index] = e.target.value
+    this.props.updateAppState('skills', this.copyProps)
   }
 
   render() {
@@ -35,7 +30,7 @@ export default class SkillsEdit extends Component {
 
     return (
       <div className="skills-edit-div">
-        {this.state.newSkills.map((item, index) => {
+        {this.props.data.map((item, index) => {
           return (
             <div key={index} data-key={index}>
               <input 
@@ -51,6 +46,13 @@ export default class SkillsEdit extends Component {
             </div>
           )
         })}
+        <div className="new-skill-button">
+          <input
+            type="button"
+            value="+"
+            onClick={this.addSkill}
+          />
+        </div>
         
       </div>
     )
