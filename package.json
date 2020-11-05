@@ -2,7 +2,7 @@
   "name": "cv-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "://mjwills-inf.github.io/-TOP-cv",
+  "homepage": "https://mjwills-inf.github.io/-TOP-cv",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [
