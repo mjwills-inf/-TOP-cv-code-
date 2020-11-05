@@ -4,43 +4,43 @@ export default class ExperienceEdit extends Component {
 
   copyProps = this.props.data
 
+  getIndex = (e) => e.target.parentNode.getAttribute('data-key')
+  getParentIndex = (e) => e.target.parentNode.parentNode.getAttribute('data-key')
+  
   // Below methods nested arrays in objects in arrays seems ridiculous
   // should be subcomponents
 
   dataChange = (e) => {
-    let index = e.target.parentNode.getAttribute('data-key')
-    this.copyProps[index][e.target.name] = e.target.value
+    this.copyProps[this.getIndex(e)][e.target.name] = e.target.value
     this.props.updateAppState('experience', this.copyProps)
   }
-
   dutyDataChange = (e) => {
-    let parentIndex =  e.target.parentNode.parentNode.getAttribute('data-key')
-    let index = e.target.parentNode.getAttribute('data-key')
-    this.copyProps[parentIndex].duties[index] = e.target.value
+    this.copyProps[this.getParentIndex(e)].duties[this.getIndex(e)] = e.target.value
     this.props.updateAppState('experience', this.copyProps)
   }
-
-  deleteDuty = (e) => {
-    let parentIndex =  e.target.parentNode.parentNode.getAttribute('data-key')
-    let index = e.target.parentNode.getAttribute('data-key')
-    this.copyProps[parentIndex].duties.splice(index, 1)
+  deleteDuty = (e) => {    
+    this.copyProps[this.getParentIndex(e)].duties.splice(this.getIndex(e), 1)
     this.props.updateAppState('experience', this.copyProps)
   }
-
-  addDuty = () => {
+  addDuty = (e) => {
+    this.copyProps[this.getIndex(e)].duties.push('')
 
     this.props.updateAppState('experience', this.copyProps)
   }
 
-  
-
-  addNewExp = () => {
-
+  addNewExp = () => { 
+    const newObj = {
+      companyName: '',
+      position: '',
+      startDate: ' ',
+      endDate: '',
+      duties: []
+    }
+    this.copyProps.push(newObj)
     this.props.updateAppState('experience', this.copyProps)
   }
-
   deleteExp = (e) => {
-
+    this.copyProps.splice(this.getParentIndex(e), 1)
     this.props.updateAppState('experience', this.copyProps)
   }
 
@@ -106,13 +106,23 @@ export default class ExperienceEdit extends Component {
               })}
               <input
                 type="button"
-                value="+"
+                value="+ Duty"
                 onClick={this.addDuty}
+              />
+               <input
+                type="button"
+                value="Delete Workplace"
+                onClick={this.deleteExp}
               />
 
             </div>
           )        
-        })}         
+        })}
+        <input
+          type="button"
+          value="Add Workplace"
+          onClick={this.addNewExp}
+        />         
       </div>
     )
   }
