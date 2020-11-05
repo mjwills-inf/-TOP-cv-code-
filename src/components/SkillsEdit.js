@@ -1,4 +1,4 @@
-import React, { Component, useDebugValue } from 'react'
+import React, { Component } from 'react'
 
 export default class SkillsEdit extends Component {   
 
@@ -26,10 +26,9 @@ export default class SkillsEdit extends Component {
 
   render() {
 
-    console.log("skillsEdit", this.state)
-
     return (
       <div className="skills-edit-div">
+        <h3>Skills:</h3>
         {this.props.data.map((item, index) => {
           return (
             <div key={index} data-key={index}>

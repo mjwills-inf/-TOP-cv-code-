@@ -30,12 +30,15 @@ export default class FormHandler extends Component {
           />
           <ExperienceEdit 
             data={this.props.data.experience}
+            updateAppState={this.props.update}
           />
           <EducationEdit 
             data={this.props.data.education}
+            updateAppState={this.props.update}
           />
           <AdditionalEdit 
             data={this.props.data.additional}
+            updateAppState={this.props.update}
           />
 
         </form>
